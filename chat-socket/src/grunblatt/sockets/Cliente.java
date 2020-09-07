@@ -3,8 +3,9 @@ package grunblatt.sockets;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.net.*;
 
 public class Cliente {
@@ -32,9 +33,22 @@ class MarcoCliente extends JFrame {
 class LaminaMarcoCliente extends JPanel{
 
     public LaminaMarcoCliente (){
-        JLabel texto =new JLabel ("CLIENTE");
+
+        nick= new JTextField(5);
+
+        add(nick);
+
+        JLabel texto =new JLabel ("-CHAT-");
 
         add(texto);
+
+        ip=new JTextField(8);
+
+        add(ip);
+
+        campoChat= new JTextArea(12,20);
+
+        add(campoChat);
 
         campo1 = new JTextField(20);
         add(campo1);
@@ -55,13 +69,27 @@ class LaminaMarcoCliente extends JPanel{
             //System.out.println(campo1.getText());
 
             try {
-                Socket clientSocket =new Socket("localhost",9000);
+                Socket clientSocket =new Socket("localhost",9000); // 192.168.0.131
 
-                DataOutputStream stream=new DataOutputStream(clientSocket.getOutputStream());
+                ConnexionPackage connexionPackage = new ConnexionPackage();
 
-                stream.writeUTF(campo1.getText());
+                connexionPackage.setNick(nick.getText());
 
-                stream.close();
+                connexionPackage.setIp(ip.getText());
+
+                connexionPackage.setMensaje(campo1.getText());
+
+                ObjectOutputStream data_package = new ObjectOutputStream(clientSocket.getOutputStream());
+
+                data_package.writeObject(connexionPackage);
+
+                clientSocket.close();
+
+//                DataOutputStream stream=new DataOutputStream(clientSocket.getOutputStream());
+//
+//                stream.writeUTF(campo1.getText());
+//
+//                stream.close();
 
             } catch (IOException ex) {
                 System.out.println(ex.getMessage());
@@ -69,6 +97,40 @@ class LaminaMarcoCliente extends JPanel{
         }
     }
 
-    private JTextField campo1;
+    private JTextField campo1, nick, ip;
+
+    private JTextArea campoChat;
+
     private JButton miBoton;
+}
+
+class ConnexionPackage implements Serializable {
+
+    private String nick;
+    private String ip;
+    private String mensaje;
+
+    public String getNick() {
+        return nick;
+    }
+
+    public void setNick(String nick) {
+        this.nick = nick;
+    }
+
+    public String getIp() {
+        return ip;
+    }
+
+    public void setIp(String ip) {
+        this.ip = ip;
+    }
+
+    public String getMensaje() {
+        return mensaje;
+    }
+
+    public void setMensaje(String mensaje) {
+        this.mensaje = mensaje;
+    }
 }

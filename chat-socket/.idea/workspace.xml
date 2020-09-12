@@ -89,29 +89,44 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="533" y="136" key="#com.intellij.ide.util.MemberChooser" timestamp="1598565399883">
+    <state x="533" y="136" key="#com.intellij.ide.util.MemberChooser" timestamp="1599926791497">
       <screen x="0" y="23" width="1440" height="794" />
     </state>
-    <state x="533" y="136" key="#com.intellij.ide.util.MemberChooser/0.23.1440.794@0.23.1440.794" timestamp="1598565399883" />
-    <state width="1398" height="203" key="GridCell.Tab.0.bottom" timestamp="1598566453394">
+    <state x="533" y="136" key="#com.intellij.ide.util.MemberChooser/0.23.1440.794@0.23.1440.794" timestamp="1599926791497" />
+    <state x="318" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1599436274919">
       <screen x="0" y="23" width="1440" height="794" />
     </state>
-    <state width="1398" height="203" key="GridCell.Tab.0.bottom/0.23.1440.794@0.23.1440.794" timestamp="1598566453394" />
-    <state width="1398" height="203" key="GridCell.Tab.0.center" timestamp="1598566453393">
+    <state x="318" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.794@0.23.1440.794" timestamp="1599436274919" />
+    <state width="1398" height="203" key="GridCell.Tab.0.bottom" timestamp="1599605293639">
       <screen x="0" y="23" width="1440" height="794" />
     </state>
-    <state width="1398" height="203" key="GridCell.Tab.0.center/0.23.1440.794@0.23.1440.794" timestamp="1598566453393" />
-    <state width="1398" height="203" key="GridCell.Tab.0.left" timestamp="1598566453392">
+    <state width="1398" height="203" key="GridCell.Tab.0.bottom/0.23.1440.794@0.23.1440.794" timestamp="1599605293639" />
+    <state width="1398" height="203" key="GridCell.Tab.0.center" timestamp="1599605293638">
       <screen x="0" y="23" width="1440" height="794" />
     </state>
-    <state width="1398" height="203" key="GridCell.Tab.0.left/0.23.1440.794@0.23.1440.794" timestamp="1598566453392" />
-    <state width="1398" height="203" key="GridCell.Tab.0.right" timestamp="1598566453394">
+    <state width="1398" height="203" key="GridCell.Tab.0.center/0.23.1440.794@0.23.1440.794" timestamp="1599605293638" />
+    <state width="1398" height="203" key="GridCell.Tab.0.left" timestamp="1599605293638">
       <screen x="0" y="23" width="1440" height="794" />
     </state>
-    <state width="1398" height="203" key="GridCell.Tab.0.right/0.23.1440.794@0.23.1440.794" timestamp="1598566453394" />
+    <state width="1398" height="203" key="GridCell.Tab.0.left/0.23.1440.794@0.23.1440.794" timestamp="1599605293638" />
+    <state width="1398" height="203" key="GridCell.Tab.0.right" timestamp="1599605293639">
+      <screen x="0" y="23" width="1440" height="794" />
+    </state>
+    <state width="1398" height="203" key="GridCell.Tab.0.right/0.23.1440.794@0.23.1440.794" timestamp="1599605293639" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/grunblatt/sockets/Servidor.java</url>
+          <line>65</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/chat_socket$Servidor.ic" NAME="Servidor Coverage Results" MODIFIED="1598565575333" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/chat_socket$Servidor.ic" NAME="Servidor Coverage Results" MODIFIED="1599605293571" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>grunblatt.sockets.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/chat_socket$Cliente.ic" NAME="Cliente Coverage Results" MODIFIED="1598564116440" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

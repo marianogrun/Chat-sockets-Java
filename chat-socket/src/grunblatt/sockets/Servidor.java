@@ -2,10 +2,9 @@ package grunblatt.sockets;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.DataInputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -50,17 +49,45 @@ class MarcoServidor extends JFrame implements Runnable {
         try {
             ServerSocket server= new ServerSocket(9000);
 
+            String nick;
+            String ip;
+            String mensaje;
+
+            ConnexionPackage receive_package;
+
+
             while(true) {
                 Socket socket = server.accept();
 
-                DataInputStream inputStream = new DataInputStream(socket.getInputStream());
+                ObjectInputStream data_package= new ObjectInputStream(socket.getInputStream());
 
-                String mensajeTexto = inputStream.readUTF();
-                areatexto.append("\n" + mensajeTexto);
+                receive_package = (ConnexionPackage) data_package.readObject();
+
+                nick= receive_package.getNick();
+
+                ip=receive_package.getIp();
+
+                mensaje=receive_package.getMensaje();
+
+
+//                DataInputStream inputStream = new DataInputStream(socket.getInputStream());
+//
+//                String mensajeTexto = inputStream.readUTF();
+//                areatexto.append("\n" + mensajeTexto);
+
+                areatexto.append("\n"+ nick + ": "+ mensaje + " para " + ip);
+
+                Socket sendMessage = new Socket(ip, 9090);
+
+                ObjectOutputStream sendPackage = new ObjectOutputStream(sendMessage.getOutputStream());
+
+                sendPackage.writeObject(receive_package);
+
+                sendMessage.close();
 
                 socket.close();
             }
-        } catch (IOException e) {
+        } catch (IOException | ClassNotFoundException e) {
             System.out.println(e.getMessage());
         }
     }

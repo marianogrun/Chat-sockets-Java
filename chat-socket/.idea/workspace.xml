@@ -41,7 +41,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager" selected="Application.Servidor">
+  <component name="RunManager" selected="Application.Cliente">
     <configuration name="Cliente" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="grunblatt.sockets.Cliente" />
       <module name="chat-socket" />
@@ -70,8 +70,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Servidor" />
         <item itemvalue="Application.Cliente" />
+        <item itemvalue="Application.Servidor" />
       </list>
     </recent_temporary>
   </component>
@@ -89,6 +89,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="468" y="263" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog" timestamp="1599950630320">
+      <screen x="0" y="23" width="1440" height="794" />
+    </state>
+    <state x="468" y="263" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/0.23.1440.794@0.23.1440.794" timestamp="1599950630320" />
     <state x="533" y="136" key="#com.intellij.ide.util.MemberChooser" timestamp="1599926791497">
       <screen x="0" y="23" width="1440" height="794" />
     </state>
@@ -97,33 +101,22 @@
       <screen x="0" y="23" width="1440" height="794" />
     </state>
     <state x="318" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.23.1440.794@0.23.1440.794" timestamp="1599436274919" />
-    <state width="1398" height="203" key="GridCell.Tab.0.bottom" timestamp="1599605293639">
+    <state width="1398" height="203" key="GridCell.Tab.0.bottom" timestamp="1600009799370">
       <screen x="0" y="23" width="1440" height="794" />
     </state>
-    <state width="1398" height="203" key="GridCell.Tab.0.bottom/0.23.1440.794@0.23.1440.794" timestamp="1599605293639" />
-    <state width="1398" height="203" key="GridCell.Tab.0.center" timestamp="1599605293638">
+    <state width="1398" height="203" key="GridCell.Tab.0.bottom/0.23.1440.794@0.23.1440.794" timestamp="1600009799370" />
+    <state width="1398" height="203" key="GridCell.Tab.0.center" timestamp="1600009799369">
       <screen x="0" y="23" width="1440" height="794" />
     </state>
-    <state width="1398" height="203" key="GridCell.Tab.0.center/0.23.1440.794@0.23.1440.794" timestamp="1599605293638" />
-    <state width="1398" height="203" key="GridCell.Tab.0.left" timestamp="1599605293638">
+    <state width="1398" height="203" key="GridCell.Tab.0.center/0.23.1440.794@0.23.1440.794" timestamp="1600009799369" />
+    <state width="1398" height="203" key="GridCell.Tab.0.left" timestamp="1600009799368">
       <screen x="0" y="23" width="1440" height="794" />
     </state>
-    <state width="1398" height="203" key="GridCell.Tab.0.left/0.23.1440.794@0.23.1440.794" timestamp="1599605293638" />
-    <state width="1398" height="203" key="GridCell.Tab.0.right" timestamp="1599605293639">
+    <state width="1398" height="203" key="GridCell.Tab.0.left/0.23.1440.794@0.23.1440.794" timestamp="1600009799368" />
+    <state width="1398" height="203" key="GridCell.Tab.0.right" timestamp="1600009799370">
       <screen x="0" y="23" width="1440" height="794" />
     </state>
-    <state width="1398" height="203" key="GridCell.Tab.0.right/0.23.1440.794@0.23.1440.794" timestamp="1599605293639" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/grunblatt/sockets/Servidor.java</url>
-          <line>65</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state width="1398" height="203" key="GridCell.Tab.0.right/0.23.1440.794@0.23.1440.794" timestamp="1600009799370" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/chat_socket$Servidor.ic" NAME="Servidor Coverage Results" MODIFIED="1599605293571" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

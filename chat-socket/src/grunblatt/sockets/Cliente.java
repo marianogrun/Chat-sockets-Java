@@ -1,8 +1,11 @@
 package grunblatt.sockets;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -27,23 +30,70 @@ class MarcoCliente extends JFrame {
         LaminaMarcoCliente milamina = new LaminaMarcoCliente();
         add(milamina);
         setVisible(true);
+
+        addWindowListener(new SendOnline());
     }
 
+}
+
+// ----- Online signal ------//
+class SendOnline extends WindowAdapter {
+
+    public void windowOpened(WindowEvent e){
+
+        try{
+
+            Socket socket= new Socket("localhost",9999);
+
+            ConnexionPackage connexionPackage= new ConnexionPackage();
+
+            connexionPackage.setMensaje(" online");
+
+            ObjectOutputStream sendPackage= new ObjectOutputStream(socket.getOutputStream());
+
+            sendPackage.writeObject(connexionPackage);
+
+            sendPackage.close();
+
+            socket.close();
+
+        }catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
+    }
 }
 
 class LaminaMarcoCliente extends JPanel implements Runnable{
 
     public LaminaMarcoCliente (){
 
-        nick= new JTextField(5);
+        String nick_user = JOptionPane.showInputDialog("Nick: ");
+
+        JLabel n_nick= new JLabel("Nick: ");
+
+        add(n_nick);
+
+        nick= new JLabel();
+
+        nick.setText(nick_user);
 
         add(nick);
 
-        JLabel texto =new JLabel ("-CHAT-");
+        JLabel texto =new JLabel ("Online: ");
 
         add(texto);
 
-        ip=new JTextField(8);
+        ip=new JComboBox();
+
+//        ip.addItem("Usuario 1");
+//
+//        ip.addItem("Usuario 2");
+//
+//        ip.addItem("Usuario 3");
+
+        ip.addItem("localhost");
+
+        ip.addItem("192.168.0.17");
 
         add(ip);
 
@@ -100,7 +150,7 @@ class LaminaMarcoCliente extends JPanel implements Runnable{
 //                String mensajeTexto = inputStream.readUTF();
 //                areatexto.append("\n" + mensajeTexto);
 
-                campoChat.append("\n"+ nick + ": "+ mensaje + " para " + ip);
+                campoChat.append("\n"+ nick + ": "+ mensaje);
 
 //                Socket sendMessage = new Socket(ip, 9090);
 //
@@ -123,14 +173,16 @@ class LaminaMarcoCliente extends JPanel implements Runnable{
         public void actionPerformed(ActionEvent e) {
             //System.out.println(campo1.getText());
 
+            campoChat.append("\n" + campo1.getText());
+
             try {
-                Socket clientSocket =new Socket("localhost",9000); // 192.168.0.131
+                Socket clientSocket =new Socket("localhost",9999); // 192.168.0.131
 
                 ConnexionPackage connexionPackage = new ConnexionPackage();
 
                 connexionPackage.setNick(nick.getText());
 
-                connexionPackage.setIp(ip.getText());
+                connexionPackage.setIp(ip.getSelectedItem().toString());
 
                 connexionPackage.setMensaje(campo1.getText());
 
@@ -152,7 +204,11 @@ class LaminaMarcoCliente extends JPanel implements Runnable{
         }
     }
 
-    private JTextField campo1, nick, ip;
+    private JTextField campo1;//, ip;
+
+    private JComboBox ip;
+
+    private JLabel nick;
 
     private JTextArea campoChat;
 

@@ -5,6 +5,7 @@ import java.awt.*;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -47,7 +48,7 @@ class MarcoServidor extends JFrame implements Runnable {
         //System.out.println("Estoy a la escucha");
 
         try {
-            ServerSocket server= new ServerSocket(9000);
+            ServerSocket server= new ServerSocket(9999);
 
             String nick;
             String ip;
@@ -75,17 +76,33 @@ class MarcoServidor extends JFrame implements Runnable {
 //                String mensajeTexto = inputStream.readUTF();
 //                areatexto.append("\n" + mensajeTexto);
 
-                areatexto.append("\n"+ nick + ": "+ mensaje + " para " + ip);
+                if(!mensaje.equals(" online")) {
 
-                Socket sendMessage = new Socket(ip, 9090);
+                    areatexto.append("\n" + nick + ": " + mensaje + " para " + ip);
 
-                ObjectOutputStream sendPackage = new ObjectOutputStream(sendMessage.getOutputStream());
+                    Socket sendMessage = new Socket(ip, 9090);
 
-                sendPackage.writeObject(receive_package);
+                    ObjectOutputStream sendPackage = new ObjectOutputStream(sendMessage.getOutputStream());
 
-                sendMessage.close();
+                    sendPackage.writeObject(receive_package);
 
-                socket.close();
+                    sendPackage.close();
+
+                    sendMessage.close();
+
+                    socket.close();
+                }else {
+
+                    //Search for users online
+
+                    InetAddress location = socket.getInetAddress();
+
+                    String remoteIp = location.getHostAddress();
+
+                    System.out.println("Online: " + remoteIp);
+
+                    //finished
+                }
             }
         } catch (IOException | ClassNotFoundException e) {
             System.out.println(e.getMessage());

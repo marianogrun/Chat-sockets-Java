@@ -122,7 +122,7 @@ class LaminaMarcoCliente extends JPanel implements Runnable{
         //System.out.println("Estoy a la escucha");
 
         try {
-            ServerSocket serverClient= new ServerSocket(9090);
+            ServerSocket serverClient= new ServerSocket(9091);
 
             String nick;
             String ip;
@@ -185,12 +185,14 @@ class LaminaMarcoCliente extends JPanel implements Runnable{
                 connexionPackage.setIp(ip.getSelectedItem().toString());
 
                 connexionPackage.setMensaje(campo1.getText());
+                
 
                 ObjectOutputStream data_package = new ObjectOutputStream(clientSocket.getOutputStream());
 
                 data_package.writeObject(connexionPackage);
 
                 clientSocket.close();
+                
 
 //                DataOutputStream stream=new DataOutputStream(clientSocket.getOutputStream());
 //
@@ -201,6 +203,7 @@ class LaminaMarcoCliente extends JPanel implements Runnable{
             } catch (IOException ex) {
                 System.out.println(ex.getMessage());
             }
+            campo1.setText("");
         }
     }
 

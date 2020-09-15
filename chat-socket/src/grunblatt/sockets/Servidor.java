@@ -53,6 +53,7 @@ class MarcoServidor extends JFrame implements Runnable {
             String nick;
             String ip;
             String mensaje;
+            String previousNick="";
 
             ConnexionPackage receive_package;
 
@@ -79,9 +80,20 @@ class MarcoServidor extends JFrame implements Runnable {
                 if(!mensaje.equals(" online")) {
 
                     areatexto.append("\n" + nick + ": " + mensaje + " para " + ip);
-
-                    Socket sendMessage = new Socket(ip, 9090);
-
+         
+                    Socket sendMessage;
+                    String nickEncontrado= nick;
+                    if(previousNick.equals("")) {
+                    	previousNick=nick;
+                    }
+                    System.out.println(previousNick);
+                    System.out.println(nickEncontrado);
+                    
+                    if(nickEncontrado.equals(previousNick)) {
+                    sendMessage = new Socket(ip, 9091);
+                    }else {
+                    	sendMessage = new Socket(ip, 9090);
+                    }
                     ObjectOutputStream sendPackage = new ObjectOutputStream(sendMessage.getOutputStream());
 
                     sendPackage.writeObject(receive_package);
